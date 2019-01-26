@@ -7,7 +7,7 @@ Trains a 2D U-Net on the brain tumor segmentation (BraTS) subset of the [Medical
 
 Steps:
 1. Go to the [Medical Segmentation Decathlon](http://medicaldecathlon.com) website and download the [BraTS subset](https://drive.google.com/file/d/1A2IU8Sgea1h3fYLpYtFb2v7NYdMjvEhU/view?usp=sharing). The dataset has the Creative Commons Attribution-ShareAlike 4.0 International [license](https://creativecommons.org/licenses/by-sa/4.0/).
-* If you are connected to a remove server, you may wish to use `gdown.pl` to download the dataset from Google Drive:
+* If you are connected to a remote server, you may wish to use `gdown.pl` to download the dataset from Google Drive:
 ```
 wget https://raw.githubusercontent.com/pavanjadhaw/gdown.pl/master/gdown.pl && chmod u+x gdown.pl
 ./gdown.pl https://drive.google.com/file/d/1A2IU8Sgea1h3fYLpYtFb2v7NYdMjvEhU/view?usp=sharing
