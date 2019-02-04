@@ -66,14 +66,3 @@ USE_KERAS_API = True   # If true, then use Keras API. Otherwise, use tf.keras
 USE_UPSAMPLING = False  # If true, then use bilinear interpolation. Otherwise, transposed convolution
 USE_AUGMENTATION = False # Use data augmentation during training
 USE_DROPOUT = False  # Use spatial dropout in model
-
-
-# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # Get rid of the AVX, SSE warnings
-
-os.environ["KMP_BLOCKTIME"] = str(args.blocktime)
-os.environ["KMP_AFFINITY"] = "granularity=fine,compact,1,0"
-
-os.environ["OMP_NUM_THREADS"] = str(args.num_threads)
-os.environ["INTRA_THREADS"] = str(args.num_threads)
-os.environ["INTER_THREADS"] = str(args.num_inter_threads)
-os.environ["KMP_SETTINGS"] = "0"  # Show the settings at runtime
