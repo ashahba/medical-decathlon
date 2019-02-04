@@ -38,7 +38,7 @@ if [ "$1" == "-h" ]; then
   exit 0
 fi
 
-DECATHLON_DIR=${1:-"../../data/decathlon"}
+DECATHLON_DIR=${1:-"../../data"}
 SUBSET_DIR=${2:-"Task01_BrainTumour"}
 IMG_SIZE=${3:-144}  # This should be a multiple of 16
 MODEL_OUTPUT_DIR=${4:-"./output"}
@@ -98,27 +98,27 @@ echo "***********************************"
 echo "Run U-Net training on BraTS Decathlon dataset"
 # Run training script
 # The settings.py file contains the model training.
-python train.py \
-        --epochs $NUM_EPOCHS  \
-        --learningrate $LEARNING_RATE \
-        --data_path $DECATHLON_DIR/${IMG_SIZE}x${IMG_SIZE} \
-        --data_filename $MODEL_OUTPUT_FILENAME \
-        --output_path $MODEL_OUTPUT_DIR \
-        --inference_filename $INFERENCE_FILENAME \
-        --featuremaps $FEATURE_MAPS \
-        --print_model \
-        --keras_api \
-        --use_upsampling \
-        --use_augmentation \
-        --use_dropout
-
+#python train.py \
+#        --epochs $NUM_EPOCHS  \
+#        --learningrate $LEARNING_RATE \
+#        --data_path $DECATHLON_DIR/${IMG_SIZE}x${IMG_SIZE} \
+#        --data_filename $MODEL_OUTPUT_FILENAME \
+#        --output_path $MODEL_OUTPUT_DIR \
+#        --inference_filename $INFERENCE_FILENAME \
+#        --featuremaps $FEATURE_MAPS \
+#        --print_model \
+#        --keras_api \
+#        --use_upsampling \
+#        --use_augmentation \
+#        --use_dropout
+#
 echo " "
 echo "****************************************"
 echo "Step 3 of 3: Run sample inference script"
 echo "****************************************"
 
-python plot_inference_examples.py  \
-        --data_path $DECATHLON_DIR/${IMG_SIZE}x${IMG_SIZE} \
-        --data_filename $MODEL_OUTPUT_FILENAME \
-        --output_path $MODEL_OUTPUT_DIR \
-        --inference_filename $INFERENCE_FILENAME
+#python plot_inference_examples.py  \
+#        --data_path $DECATHLON_DIR/${IMG_SIZE}x${IMG_SIZE} \
+#        --data_filename $MODEL_OUTPUT_FILENAME \
+#        --output_path $MODEL_OUTPUT_DIR \
+#        --inference_filename $INFERENCE_FILENAME
