@@ -1,10 +1,5 @@
-
-
-
-
 QT -= gui
 QT += widgets
-
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -24,12 +19,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DESTDIR = ../build
 OBJECTS_DIR =  ../build
 
-
 SOURCES += ../src/main.cpp \
     ../src/brainunetopenvino.cpp
 
 HEADERS +=  ../include/brainunetopenvino.h
-
 
 INCLUDEPATH += " ../src/cnpy/"   #to read the numpy arrays in c++
 
@@ -37,7 +30,6 @@ INCLUDEPATH += "/opt/intel/computer_vision_sdk/deployment_tools/inference_engine
 INCLUDEPATH += "/opt/intel/computer_vision_sdk/opencv/include/"
 LIBS += -L"/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/lib/ubuntu_16.04/intel64/"
 LIBS += -L"/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/external/omp/lib/"
-
 LIBS += -L"/opt/intel/computer_vision_sdk/inference_engine/lib/ubuntu_16.04/intel64/"
 LIBS += -lcpu_extension_avx2 -lcnpy
 LIBS += -L"/opt/intel/computer_vision_sdk/inference_engine/external/omp/lib/"
@@ -54,9 +46,7 @@ LIBS +=-lopencv_highgui \
     -lopencv_objdetect \
     -lopencv_video
 
-
 INCLUDEPATH += "/usr/local/include/"
 LIBS += -L"/usr/local/lib/"
 LIBS += -lcnpy \
     -lz
-
