@@ -86,6 +86,39 @@ parser.add_argument("--use_dropout", help="add spatial dropout layers 3/4",
                     action="store_true", default=settings.USE_DROPOUT)
 parser.add_argument("--use_augmentation", help="use data augmentation on training images",
                     action="store_true", default=settings.USE_AUGMENTATION)
+parser.add_argument("--input_filename",
+                    help="Name of saved Keras model (e.g. model.h5)",
+                    default="output/unet_model_for_decathlon.hdf5")
+parser.add_argument("--output_directory",
+                    help="Directory where to save the TensorFlow Serving Protobuf Model",
+                    default="output/saved_2dunet_model_protobuf")
+
+parser.add_argument("--hdf5_datafile", 
+                    help="the name and path of the HDF5 dataset",
+                   default=settings.DATA_PATH+settings.DATA_FILENAME)
+
+# OpenVINO arguments
+parser.add_argument("-number_iter", "--number_iter",
+                        help="Number of iterations", default=5, type=int)
+parser.add_argument("-l", "--cpu_extension",
+                        help="MKLDNN (CPU)-targeted custom layers. "
+                             "Absolute path to a shared library with "
+                             "the kernels impl.", type=str)
+parser.add_argument("-pp", "--plugin_dir", help="Path to a plugin folder",
+                        type=str, default=None)
+parser.add_argument("-d", "--device",
+                        help="Specify the target device to infer on; "
+                             "CPU, GPU, FPGA or MYRIAD is acceptable. Sample "
+                             "will look for a suitable plugin for device "
+                             "specified (CPU by default)", default="CPU",
+                        type=str)
+parser.add_argument("-plot", "--plot", help="Plot results",
+                        default=False, action="store_true")
+parser.add_argument("-rows_per_image", "--rows_per_image",
+                        help="Number of rows per plot (when -plot = True)",
+                        default=4, type=int)
+parser.add_argument("-stats", "--stats", help="Plot the runtime statistics",
+                        default=False, action="store_true")
 
 args = parser.parse_args()
 
